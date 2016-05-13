@@ -14,15 +14,35 @@
       <cell title="Weui" is-link v-link="'weui'">
       </cell>
     </group>
+    <tabbar>
+      <tabbar-item selected>
+        <img slot="icon" src="../src/assets/icon_nav_button.png">
+        <span slot="label">Wechat</span>
+      </tabbar-item>
+      <tabbar-item show-dot>
+        <img slot="icon" src="../src/assets/icon_nav_msg.png">
+        <span slot="label">Message</span>
+      </tabbar-item>
+      <tabbar-item>
+        <img slot="icon" src="../src/assets/icon_nav_article.png">
+        <span slot="label">Explore</span>
+      </tabbar-item>
+      <tabbar-item>
+        <img slot="icon" src="../src/assets/icon_nav_cell.png">
+        <span slot="label">News</span>
+      </tabbar-item>
+    </tabbar>
   </div>
 </template>
 
 <script>
-import { Cell, Group } from 'vux'
+import { Cell, Group, Tabbar, TabbarItem } from 'vux'
 export default {
   components: {
     Cell,
-    Group
+    Group,
+    Tabbar,
+    TabbarItem
   }
 }
 </script>

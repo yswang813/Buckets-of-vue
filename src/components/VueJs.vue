@@ -1,5 +1,6 @@
 <template>
   <div>
+    <x-header style="background:#000;"></x-header>
     <h1>vue.js is awesome!</h1>
     <p>
       bala bala bala bala bala bala bala bala bala bala bala bala bala bala bala bala bala bala bala bala bala bala bala bala bala bala bala bala bala bala bala bala bala bala bala bala bala bala bala bala bala bala bala bala bala bala bala bala bala bala bala bala bala bala bala bala bala bala bala bala bala bala bala bala bala bala bala bala bala bala bala bala bala bala bala bala bala bala bala bala bala bala bala bala bala bala bala bala bala bala bala bala bala bala bala bala bala bala bala bala bala bala bala bala bala bala bala bala bala bala bala bala
@@ -9,13 +10,14 @@
 
 <script>
 
-import { Group, Cell ,Icon } from 'vux'
+import { Group, Cell ,Icon ,XHeader } from 'vux'
 
 export default {
   components: {
     Group,
     Cell,
-    Icon
+    Icon,
+    XHeader
   }
 }
 </script>
