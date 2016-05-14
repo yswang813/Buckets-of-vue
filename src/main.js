@@ -8,6 +8,7 @@ import VueJs from 'components/VueJs'
 import VueRouter from 'components/VueRouter'
 import Webpack from 'components/Webpack'
 import Weui from 'components/Weui'
+import Calculation from 'components/Calculation'
 
 // 取消click延迟
 const FastClick = require('fastclick')
@@ -34,6 +35,9 @@ router.map({
   },
   '/weui': {
     component: Weui
+  },
+  '/calculation': {
+    component: Calculation
   }
 })
 

@@ -1,17 +1,22 @@
 <template>
   <div>
+    <prop :number1="2" :number2="3"></prop>
     <group>
       <cell title="This project include:">
       </cell>
     </group>
     <group>
-      <cell title="vue.js" is-link v-link="'/vue.js'">
+      <cell title="vue.js" is-link v-link="'vue.js'">
       </cell>
       <cell title="vue-router" is-link v-link="'vue-router'">
       </cell>
       <cell title="webpack" is-link v-link="'webpack'">
       </cell>
       <cell title="Weui" is-link v-link="'weui'">
+      </cell>
+    </group>
+    <group>
+      <cell title="calculation" is-link v-link="'/calculation'">
       </cell>
     </group>
     <tabbar>
@@ -37,12 +42,14 @@
 
 <script>
 import { Cell, Group, Tabbar, TabbarItem } from 'vux'
+import Prop from 'components/Prop'
 export default {
   components: {
     Cell,
     Group,
     Tabbar,
-    TabbarItem
+    TabbarItem,
+    Prop
   }
 }
 </script>
