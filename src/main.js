@@ -1,18 +1,33 @@
 import Vue from 'vue'
 import App from './App'
 import Router from 'vue-router'
+import Vuex from 'vuex'
 
 // components
 import Home from './Home'
-import VueJs from 'components/VueJs'
-import VueRouter from 'components/VueRouter'
-import Webpack from 'components/Webpack'
-import Weui from 'components/Weui'
-import Calculation from 'components/Calculation'
+import VueTable from './page/VueTable'
+import VueRouter from './page/VueRouter'
+import VueResource from './page/VueResource'
+import Webpack from './page/Webpack'
+import Weui from './page/Weui'
+import Calculation from './page/Calculation'
+import Md from './page/Md'
+import VuexIncrement from './page/VuexIncrement'
+import Note from './note/Note'
+import UniCode from './page/UniCode'
+
+// 调式模式
+// 为所有的警告打印栈追踪。
+// 把所有的锚节点以注释节点显示在 DOM 中，更易于检查渲染结果的结构。
+Vue.config.debug = true
 
 // 取消click延迟
 const FastClick = require('fastclick')
 FastClick.attach(document.body)
+
+// resource
+Vue.use(require('vue-resource'));
+// console.log(Vue.http)
 
 // router
 Vue.use(Router)
@@ -24,11 +39,14 @@ router.map({
   '/': {
     component: Home
   },
-  '/vue.js': {
-    component: VueJs
+  '/vue-js': {
+    component: VueTable
   },
   '/vue-router': {
     component: VueRouter
+  },
+  '/vue-resource': {
+    component: VueResource
   },
   '/webpack': {
     component: Webpack
@@ -38,6 +56,18 @@ router.map({
   },
   '/calculation': {
     component: Calculation
+  },
+  '/markdown': {
+    component: Md
+  },
+  '/vuex': {
+    component: VuexIncrement
+  },
+  '/note': {
+    component: Note
+  },
+  '/UniCode': {
+    component: UniCode
   }
 })
 
@@ -69,6 +99,10 @@ router.beforeEach(function (transition) {
 })
 
 router.afterEach(function (transition) {
+  console.log('成功浏览到: ' + transition.to.path)
+  // 根目录为/
+  // 不同路径干不同的事情
+  console.log('完整链接为: ' + window.location.href)
   if (transition.to.fullPath !== '/demo') {
     window.scrollTo(0, 0)
   } else {

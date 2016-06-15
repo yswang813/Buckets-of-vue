@@ -11,9 +11,16 @@
   },
   "dependencies": {
     "babel-runtime": "^6.0.0",
+    "body-parser": "^1.15.1",
+    "bootstrap": "^3.3.6",
     "fastclick": "^1.0.6",
+    "marked": "^0.3.5",
+    "mongodb": "^2.1.19",
+    "morgan": "^1.7.0",
     "vue": "^1.0.21",
+    "vue-resource": "^0.7.0",
     "vue-router": "^0.7.13",
+    "vuex": "^0.6.3",
     "vux": "0.0.116"
   },
   "devDependencies": {
@@ -32,6 +39,7 @@
     "html-webpack-plugin": "^2.8.1",
     "http-proxy-middleware": "^0.12.0",
     "json-loader": "^0.5.4",
+    "node-sass": "^3.7.0",
     "ora": "^0.2.0",
     "sass-loader": "^3.2.0",
     "shelljs": "^0.6.0",

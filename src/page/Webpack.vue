@@ -43,7 +43,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 @import '~vux/vux.css';
 
 .m-img {

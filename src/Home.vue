@@ -1,14 +1,16 @@
 <template>
   <div>
-    <prop :number1="2" :number2="3"></prop>
+    <!-- <prop :number1="2" :number2="3"></prop> -->
     <group>
       <cell title="This project include:">
       </cell>
     </group>
     <group>
-      <cell title="vue.js" is-link v-link="'vue.js'">
+      <cell title="vue.js" is-link v-link="'vue-js'">
       </cell>
       <cell title="vue-router" is-link v-link="'vue-router'">
+      </cell>
+      <cell title="vue-resource" is-link v-link="'vue-resource'">
       </cell>
       <cell title="webpack" is-link v-link="'webpack'">
       </cell>
@@ -18,47 +20,31 @@
     <group>
       <cell title="calculation" is-link v-link="'/calculation'">
       </cell>
+      <cell title="md" is-link v-link="'/markdown'">
+      </cell>
+      <cell title="VuexIncrement" is-link v-link="'/vuex'">
+      </cell>
+      <cell title="Notebook" is-link v-link="'/note'">
+      </cell>
+      <cell title="UniCode" is-link v-link="'/UniCode'">
+      </cell>
     </group>
-    <tabbar>
-      <tabbar-item selected>
-        <img slot="icon" src="../src/assets/icon_nav_button.png">
-        <span slot="label">Wechat</span>
-      </tabbar-item>
-      <tabbar-item show-dot>
-        <img slot="icon" src="../src/assets/icon_nav_msg.png">
-        <span slot="label">Message</span>
-      </tabbar-item>
-      <tabbar-item>
-        <img slot="icon" src="../src/assets/icon_nav_article.png">
-        <span slot="label">Explore</span>
-      </tabbar-item>
-      <tabbar-item>
-        <img slot="icon" src="../src/assets/icon_nav_cell.png">
-        <span slot="label">News</span>
-      </tabbar-item>
-    </tabbar>
   </div>
 </template>
 
 <script>
-import { Cell, Group, Tabbar, TabbarItem } from 'vux'
-import Prop from 'components/Prop'
+import { Cell, Group } from 'vux'
+import Prop from './page/Prop'
 export default {
   components: {
     Cell,
     Group,
-    Tabbar,
-    TabbarItem,
     Prop
-  }
+  },
 }
 </script>
 
 <style>
 @import '~vux/vux.css';
-body {
-  font-family: Helvetica, sans-serif;
-  background-color: #fbf9fe;
-  padding-bottom: 50px;
-}
+
 </style>
