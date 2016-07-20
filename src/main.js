@@ -15,6 +15,9 @@ import Md from './page/Md'
 import VuexIncrement from './page/VuexIncrement'
 import Note from './note/Note'
 import UniCode from './page/UniCode'
+import Transition from './page/transition'
+
+import List from './zhihu/List'
 
 // 调式模式
 // 为所有的警告打印栈追踪。
@@ -68,6 +71,12 @@ router.map({
   },
   '/UniCode': {
     component: UniCode
+  },
+  '/transition': {
+    component: Transition
+  },
+  '/List': {
+    component: List
   }
 })
 

@@ -28,6 +28,12 @@
       </cell>
       <cell title="UniCode" is-link v-link="'/UniCode'">
       </cell>
+      <cell title="Transition" is-link v-link="'/transition'">
+      </cell>
+    </group>
+    <group>
+      <cell title="List" is-link v-link="'/List'">
+      </cell>
     </group>
   </div>
 </template>
