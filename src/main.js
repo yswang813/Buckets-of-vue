@@ -17,7 +17,10 @@ import Note from './note/Note'
 import UniCode from './page/UniCode'
 import Transition from './page/transition'
 
-import List from './zhihu/List'
+import ZhihuList from './zhihu/List'
+import CnodeList from './cnode/List'
+import CnodeDetail from './cnode/Detail'
+import wowTable from './wow/vTable'
 
 // 调式模式
 // 为所有的警告打印栈追踪。
@@ -75,10 +78,22 @@ router.map({
   '/transition': {
     component: Transition
   },
-  '/List': {
-    component: List
-  }
+  '/ZhihuList': {
+    component: ZhihuList
+  },
+  '/page/:pageNum': {
+    component: CnodeList,
+    name: 'page'
+  },
+  '/detail/:articleId': {
+    component: CnodeDetail,
+    name: 'detail'
+  },
+  '/wowTable': {
+    component: wowTable
+  },
 })
+
 
 
 // save position for demo page

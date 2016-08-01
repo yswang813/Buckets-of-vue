@@ -48,7 +48,6 @@ body {
 
 .v-transition{
   height: 100vh;
-  /*padding-bottom: 50px;*/
   overflow-y: auto;
   box-sizing: border-box;
 }
