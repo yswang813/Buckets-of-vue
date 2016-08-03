@@ -15,7 +15,7 @@ module.exports = merge(baseWebpackConfig, {
     // path: config.build.assetsRoot,
     // filename: utils.assetsPath('js/[name].[chunkhash].js'),
     // chunkFilename: utils.assetsPath('js/[id].[chunkhash].js')
-    publicPath: '/dist/',
+    publicPath: '/vux_demo/dist/',
     filename: 'static/js/[name].[chunkhash].js',
     chunkFilename: 'static/js/[id].[chunkhash].js'
   },
