@@ -2,7 +2,7 @@
 
 > A Vue.js project with vux & some else
 
-[Demo](http://http://aha2mao.github.io/vux_demo/dist/)
+[Demo](http://aha2mao.github.io/vux_demo/dist/)
 
 ## Build Setup
 
