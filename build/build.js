@@ -10,7 +10,7 @@ var webpackConfig = require('./webpack.prod.conf')
 
 console.log(
   '  Hello,\n' +
-  '  npm run build is sososo slotly,\n' +
+  '  npm run build is sososo slow,\n' +
   '  wait a moment please.\n'
 )
 
