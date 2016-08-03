@@ -16,6 +16,7 @@ import VuexIncrement from './page/VuexIncrement'
 import Note from './note/Note'
 import UniCode from './page/UniCode'
 import Transition from './page/transition'
+import Crud from './page/crud'
 
 import ZhihuList from './zhihu/List'
 import CnodeList from './cnode/List'
@@ -91,6 +92,10 @@ router.map({
   },
   '/wowTable': {
     component: wowTable
+  },
+  '/crud': {
+    component: Crud,
+    name: 'crud'
   },
 })
 

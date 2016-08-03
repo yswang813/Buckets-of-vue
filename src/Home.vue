@@ -29,6 +29,8 @@
       </cell>
       <cell title="Transition" is-link v-link="'/transition'">
       </cell>
+      <cell title="Crud" is-link v-link="'/crud'">
+      </cell>
       <cell title="WowList" is-link v-link="'/wowTable'">
       </cell>
       <cell title="CnodeList" is-link v-link="{ name: 'page', params: { pageNum: 1 }}">
