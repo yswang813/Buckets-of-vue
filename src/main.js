@@ -17,6 +17,7 @@ import Note from './note/Note'
 import UniCode from './page/UniCode'
 import Transition from './page/transition'
 import Crud from './page/crud'
+import Notification from './page/Notification'
 
 import ZhihuList from './zhihu/List'
 import CnodeList from './cnode/List'
@@ -96,6 +97,10 @@ router.map({
   '/crud': {
     component: Crud,
     name: 'crud'
+  },
+  '/Notification': {
+    component: Notification,
+    name: 'notification'
   },
 })
 

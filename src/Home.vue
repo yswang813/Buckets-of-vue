@@ -35,6 +35,8 @@
       </cell>
       <cell title="CnodeList" is-link v-link="{ name: 'page', params: { pageNum: 1 }}">
       </cell>
+      <cell title="Notification" is-link v-link="{ name: 'notification'}">
+      </cell>
       <!-- <cell title="List" is-link v-link="'/ZhihuList'">
       </cell> -->
     </group>
