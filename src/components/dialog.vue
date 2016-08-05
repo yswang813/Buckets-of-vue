@@ -1,4 +1,4 @@
-<template id="dialog-template">
+ <template id="dialog-template">
   <div class="dialogs">
     <div class="dialog" v-bind:class="{ 'dialog-active': show }">
       <div class="dialog-content">
@@ -42,10 +42,10 @@
      */
     props: ['mode', 'title', 'fields', 'item'],
     methods: {
-      close: function() {
+      close: function () {
         this.show = false
       },
-      save: function() {
+      save: function () {
         if (this.mode === 1) {
           // 使用$dispatch调用simple-grid的create-item事件
           this.$dispatch('create-item')
@@ -56,7 +56,7 @@
       }
     },
     events: {
-      'showDialog': function(show) {
+      'showDialog': function (show) {
         this.show = show
       }
     }

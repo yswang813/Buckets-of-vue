@@ -1,26 +1,9 @@
 <template>
   <div>
-    <router-view
-    transition
-    transition-mode="out-in"></router-view>
-    <!-- <tabbar>
-      <tabbar-item selected is-link v-link="'/'">
-        <img slot="icon" src="../src/assets/icon_nav_button.png">
-        <span slot="label">Wechat</span>
-      </tabbar-item>
-      <tabbar-item show-dot is-link v-link="'vue-router'">
-        <img slot="icon" src="../src/assets/icon_nav_msg.png">
-        <span slot="label">Message</span>
-      </tabbar-item>
-      <tabbar-item is-link v-link="'webpack'">
-        <img slot="icon" src="../src/assets/icon_nav_article.png">
-        <span slot="label">Explore</span>
-      </tabbar-item>
-      <tabbar-item is-link v-link="'weui'">
-        <img slot="icon" src="../src/assets/icon_nav_cell.png">
-        <span slot="label">News</span>
-      </tabbar-item>
-    </tabbar> -->
+    <router-view transition="expand" 
+                 transition-mode="out-in" 
+                 class="animated">
+    </router-view>
   </div>
 </template>
 
@@ -37,6 +20,7 @@ export default {
 </script>
 
 <style>
+
 html,body{
   height: 100%;
 }
@@ -46,10 +30,15 @@ body {
   background-color: #fbf9fe;
 }
 
-.v-transition{
-  height: 100vh;
-  overflow-y: auto;
-  box-sizing: border-box;
+.expand-transition {
+  transition: all .3s ease;
+  padding: 0px;
+  overflow: hidden;
+}
+
+.expand-enter, .expand-leave {
+  padding: 0 10px;
+  opacity: 0;
 }
 
 </style>

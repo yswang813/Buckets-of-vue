@@ -219,13 +219,13 @@ export default {
         if (this.page < this.total) {
           this.page++
         } else {
-          window.alert('已是最后一页')
+          console.log('已是最后一页')
         }
       } else {
         if (this.page > 1) {
           this.page--
         } else {
-          window.alert('已是第一页')
+          console.log('已是第一页')
         }
       }
     }

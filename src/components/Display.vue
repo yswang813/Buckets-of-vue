@@ -6,7 +6,7 @@
 </template>
 
 <script>
-import { getCount,getinputVal } from '../vuex/getters'
+import { getCount, getinputVal } from '../vuex/getters'
 import { inputValue } from '../vuex/actions'
 export default {
   vuex: {

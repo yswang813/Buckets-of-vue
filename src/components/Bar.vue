@@ -11,7 +11,7 @@
     v-if="loss / total > 0"
     :style="{ width: 100 * loss / total + '%' }"
     class="loss-bar">
-      {{ win === 0? '0%':'' }}
+      {{ win === 0? '0%' : '' }}
     </span>
   </div>
 </template>

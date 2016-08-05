@@ -15,16 +15,16 @@ import { addNote, deleteNote, toggleFavorite } from '../vuex/actions'
 import { activeNote } from '../vuex/getters'
 
 export default {
-    vuex:{
-        getters:{
-            activeNote
-        },
-        actions:{
-            addNote,
-            deleteNote,
-            toggleFavorite
-        }
+  vuex: {
+    getters: {
+      activeNote
+    },
+    actions: {
+      addNote,
+      deleteNote,
+      toggleFavorite
     }
+  }
 }
 </script>
 <style scoped>

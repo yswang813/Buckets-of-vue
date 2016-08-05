@@ -38,7 +38,7 @@
 </template>
 
 <script>
-import ModalDialog from 'components/dialog'
+import ModalDialog from './dialog.vue'
 export default {
   props: ['dataList', 'columns', 'searchKey'],
   transitions: {
@@ -58,16 +58,16 @@ export default {
       item: {}
     }
   },
-  ready: function(){
-    for (var i = 0; i < this.columns.length; i++) {
+  ready: function () {
+    for (let i = 0; i < this.columns.length; i++) {
       if (this.columns[i].isKey) {
         this.keyColumn = this.columns[i]['name']
-        break;
+        break
       }
     }
   },
   methods: {
-    openNewItemDialog: function(title) {
+    openNewItemDialog: function (title) {
       // 对话框的标题
       this.title = title
       // mode = 1表示新建模式
@@ -77,9 +77,9 @@ export default {
       // 广播事件，showDialog是modal-dialog组件的一个方法，传入参数true表示显示对话框
       this.$broadcast('showDialog', true)
     },
-    openEditItemDialog: function(key) {
+    openEditItemDialog: function (key) {
       // 根据主键查找当前修改的数据
-      var currentItem = this.findItemByKey(key)
+      let currentItem = this.findItemByKey(key)
       // 对话框的标题
       this.title = 'Edit Item - ' + key
       // mode = 2表示修改模式
@@ -90,44 +90,46 @@ export default {
       this.$broadcast('showDialog', true)
     },
     // 弹出修改数据的对话框时，使用对象的深拷贝
-    initItemForUpdate(p, c) {
-      c = c || {};
-      for(var i in p) {
+    initItemForUpdate (p, c) {
+      c = c || {}
+      for (let i in p) {
+      // for ( let i = Object.keys(p)[0]; i < Object.keys(p); i++) {
         // 属性i是否为p对象的自有属性
-        if(p.hasOwnProperty(i)) {
+        if (p.hasOwnProperty(i)) {
           // 属性i是否为复杂类型
-          if(typeof p[i] === 'object') {
+          if (typeof p[i] === 'object') {
             // 如果p[i]是数组，则创建一个新数组
             // 如果p[i]是普通对象，则创建一个新对象
-            c[i] = Array.isArray(p[i]) ? [] : {};
+            c[i] = Array.isArray(p[i]) ? [] : {}
             // 递归拷贝复杂类型的属性
-            this.initItemForUpdate(p[i], c[i]);
+            this.initItemForUpdate(p[i], c[i])
           } else {
             // 属性是基础类型时，直接拷贝
-            c[i] = p[i];
+            c[i] = p[i]
           }
         }
       }
-      return c;
+      return c
     },
-    findItemByKey: function(key){
-      var keyColumn = this.keyColumn
-      for(var i = 0; i < this.dataList.length; i++){
-        if(this.dataList[i][keyColumn] === key){
+    findItemByKey: function (key) {
+      let keyColumn = this.keyColumn
+      for (let i = 0; i < this.dataList.length; i++) {
+        if (this.dataList[i][keyColumn] === key) {
           return this.dataList[i]
         }
       }
     },
-    itemExists: function() {
-      var keyColumn = this.keyColumn
-      for (var i = 0; i < this.dataList.length; i++) {
-        if (this.item[keyColumn] === this.dataList[i][keyColumn])
-          return true;
+    itemExists: function () {
+      let keyColumn = this.keyColumn
+      for (let i = 0; i < this.dataList.length; i++) {
+        if (this.item[keyColumn] === this.dataList[i][keyColumn]) {
+          return true
+        }
       }
-      return false;
+      return false
     },
-    createItem: function() {
-      var keyColumn = this.keyColumn
+    createItem: function () {
+      let keyColumn = this.keyColumn
       if (!this.itemExists()) {
         // 将item追加到dataList
         this.dataList.push(this.item)
@@ -136,22 +138,20 @@ export default {
         // 新建完数据后，重置item对象
         this.item = {}
       } else {
-        alert(keyColumn + ' "' + this.item[keyColumn] + '" is already exists')
+        console.log(keyColumn + ' "' + this.item[keyColumn] + '" is already exists')
       }
-
     },
-    updateItem: function() {
-
+    updateItem: function () {
       // 获取主键列
-      var keyColumn = this.keyColumn
-
-      for (var i = 0; i < this.dataList.length; i++) {
+      let keyColumn = this.keyColumn
+      for (let i = 0; i < this.dataList.length; i++) {
         // 根据主键查找要修改的数据，然后将this.item数据更新到this.dataList[i]
         if (this.dataList[i][keyColumn] === this.item[keyColumn]) {
-          for (var j in this.item) {
+          for (let j in this.item) {
             this.dataList[i][j] = this.item[j]
           }
-          break;
+          // Object.assign(this.dataList[i], this.item)
+          break
         }
       }
       // 广播事件，传入参数false表示隐藏对话框
@@ -159,10 +159,10 @@ export default {
       // 修改完数据后，重置item对象
       this.item = {}
     },
-    deleteItem: function(entry) {
-      var data = this.dataList
-      data.forEach(function(item, i) {
-        if(item === entry) {
+    deleteItem: function (entry) {
+      let data = this.dataList
+      data.forEach( (item, i) => {
+        if (item === entry) {
           data.splice(i, 1)
           return
         }

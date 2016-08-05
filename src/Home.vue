@@ -1,60 +1,45 @@
 <template>
   <div>
-    <!-- <group>
-      <cell title="vue.js" is-link v-link="'vue-js'">
-      </cell>
-      <cell title="vue-router" is-link v-link="'vue-router'">
-      </cell>
-      <cell title="vue-resource" is-link v-link="'vue-resource'">
-      </cell>
-      <cell title="webpack" is-link v-link="'webpack'">
-      </cell>
-      <cell title="Weui" is-link v-link="'weui'">
-      </cell>
-    </group> -->
     <group>
       <cell title='Items:'>
       </cell>
     </group>
     <group>
-      <cell title="Calculation" is-link v-link="'/calculation'">
+      <cell title="Calculation" is-link v-link="{ name: 'calculation'}">
       </cell>
-      <cell title="MdEditor" is-link v-link="'/markdown'">
+      <cell title="MdEditor" is-link v-link="{ name: 'markdown'}">
       </cell>
-      <cell title="Vuex++--" is-link v-link="'/vuex'">
+      <cell title="Vuex++--" is-link v-link="{ name: 'vuex'}">
       </cell>
-      <cell title="Notebook" is-link v-link="'/note'">
+      <!-- <cell title="Notebook" is-link v-link="{ name: 'note'}">
+      </cell> -->
+      <cell title="UniCode" is-link v-link="{ name: 'uniCode'}">
       </cell>
-      <cell title="UniCode" is-link v-link="'/UniCode'">
+      <cell title="Transition" is-link v-link="{ name: 'transition'}">
       </cell>
-      <cell title="Transition" is-link v-link="'/transition'">
+      <cell title="Crud" is-link v-link="{ name: 'crud'}">
       </cell>
-      <cell title="Crud" is-link v-link="'/crud'">
-      </cell>
-      <cell title="WowList" is-link v-link="'/wowTable'">
+      <cell title="WowList" is-link v-link="{ name: 'wowTable'}">
       </cell>
       <cell title="CnodeList" is-link v-link="{ name: 'page', params: { pageNum: 1 }}">
       </cell>
       <cell title="Notification" is-link v-link="{ name: 'notification'}">
       </cell>
-      <!-- <cell title="List" is-link v-link="'/ZhihuList'">
-      </cell> -->
     </group>
   </div>
 </template>
 
 <script>
-import { Cell, Group } from 'vux'
-import Prop from './page/Prop'
+import Group from 'vux/src/components/group/index.vue'
+import Cell from 'vux/src/components/cell/index.vue'
 export default {
   components: {
     Cell,
-    Group,
-    Prop
+    Group
   },
 }
 </script>
 
 <style>
-@import '~vux/vux.css';
+@import '~vux/dist/vux.css';
 </style>

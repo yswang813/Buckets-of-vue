@@ -11,16 +11,13 @@
       </div>
     </main>
     <notification
-    v-ref:nt
     :options.sync="options"
     :show.sync="showNotification"></notification>
   </div>
 </template>
 
 <script>
-import Notification from 'components/Notification'
 export default {
-  components: { Notification },
   data () {
     return {
       showNotification: false,
@@ -39,7 +36,8 @@ export default {
             autoClose: false,
             backgroundColor: '#fbff7c',
             textColor: '#92253f',
-            content: 'You can also customerize the background color and text color.'}
+            content: 'You can also customerize the background color and text color.'
+          }
         },
         {
           content: 'error',
@@ -76,7 +74,7 @@ export default {
       this.showNotification = true
       this.options = options
     }
-  },
+  }
 }
 </script>
 

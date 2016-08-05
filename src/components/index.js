@@ -1,0 +1,6 @@
+export { default as vTable } from './Table.vue'
+export { default as SimpleGrid } from './grid.vue'
+export { default as Notification } from './Notification.vue'
+export { default as Display } from './Display.vue'
+export { default as Increment } from './Increment.vue'
+export { default as Decrement } from './Decrement.vue'

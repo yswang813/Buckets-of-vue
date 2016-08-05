@@ -31,52 +31,51 @@
 
 <script>
 import { updateActiveNote } from '../vuex/actions'
-import { notes,activeNote } from '../vuex/getters'
+import { activeNote } from '../vuex/getters'
 
 export default{
-    data () {
-        return {
-            show : 'all',
-            filterText:'',
-            notes:[],
-        }
-    },
-    vuex : {
-        getters :{
-            // notes,
-            activeNote
-        },
-        actions:{
-            updateActiveNote
-        }
-    },
-    ready() {
-      this.$http.get('http://localhost:8888/notessss')
-        .then(function(ret) {
-          this.notes = ret.data.notes;
-          console.log(ret)
-        })
-        .then(function(err) {
-          console.log(err);
-        })
-    },
-    computed:{
-        filteredNotes () {
-            if(this.show==='all'){
-                var notes = this.notes;
-                var notesF=[];
-                for(var i=0,l=notes.length; i<l ; i++){
-                    if((notes[i].text.toLowerCase()).includes(this.filterText.toLowerCase())){
-                        notesF.push(notes[i])
-                    }
-                }
-                return this.filterText===''?notes:notesF;
-            }
-            else if (this.show === 'favorites') {
-                return this.notes.filter(note=>note.favorite)
-            }
-        }
+  data () {
+    return {
+      show: 'all',
+      filterText: '',
+      notes: [],
     }
+  },
+  vuex: {
+    getters: {
+      // notes,
+      activeNote
+    },
+    actions: {
+      updateActiveNote
+    }
+  },
+  ready () {
+    this.$http.get('http://localhost:8888/notessss')
+    .then( (ret) => {
+      this.notes = ret.data.notes
+      console.log(ret)
+    })
+    .then( (err) => {
+      console.log(err)
+    })
+  },
+  computed: {
+    filteredNotes () {
+      if (this.show === 'all') {
+        let notes = this.notes
+        let notesF = []
+        for (let i = 0, l = notes.length; i < l; i++) {
+          if ((notes[i].text.toLowerCase()).includes(this.filterText.toLowerCase())) {
+            notesF.push(notes[i])
+          }
+        }
+        return this.filterText === '' ? notes : notesF
+      } else if (this.show === 'favorites') {
+        return this.notes.filter(note => note.favorite)
+      }
+    }
+  }
 }
 </script>
 <style scoped>

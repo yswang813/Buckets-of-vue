@@ -9,16 +9,16 @@ import { editNote } from '../vuex/actions'
 import { activeNoteText } from '../vuex/getters'
 
 export default {
-  computed:{
-    notelen:function(){
-      return this.$store.state.notes.length == 0?true:false
+  computed: {
+    notelen: function () {
+      return this.$store.state.notes.length === 0
     }
   },
-  vuex:{
-    getters:{
+  vuex: {
+    getters: {
       activeNoteText
     },
-    actions:{
+    actions: {
       editNote
     }
   },

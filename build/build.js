@@ -9,9 +9,9 @@ var webpack = require('webpack')
 var webpackConfig = require('./webpack.prod.conf')
 
 console.log(
-  '  Hello,\n' +
-  '  npm run build is sososo slow,\n' +
-  '  wait a moment please.\n'
+  '  Tip:\n' +
+  '  Built files are meant to be served over an HTTP server.\n' +
+  '  Opening index.html over file:// won\'t work.\n'
 )
 
 var spinner = ora('building for production...')

@@ -8,10 +8,8 @@
 
 <script>
 import arena from '../api/arena'
-import vTable from '../components/Table.vue'
 
 export default {
-  components: { vTable },
   data () {
     return {
       region: 'CN',

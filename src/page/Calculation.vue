@@ -39,175 +39,171 @@
 </template>
 
 <script>
-import { XHeader, Flexbox, FlexboxItem, XButton, Box, GroupTitle } from 'vux'
+import XButton from 'vux/src/components/x-button/index.vue'
+import XHeader from 'vux/src/components/x-header/index.vue'
+import GroupTitle from 'vux/src/components/group-title/index.vue'
+import Box from 'vux/src/components/box/index.vue'
+import Flexbox from 'vux/src/components/flexbox/index.vue'
+import FlexboxItem from 'vux/src/components/flexbox-item/index.vue'
 
 export default {
   components: {
-    XHeader,
-    Flexbox,
-    FlexboxItem,
     XButton,
+    XHeader,
+    GroupTitle,
     Box,
-    GroupTitle
+    Flexbox,
+    FlexboxItem
   },
   methods: {
-    update: function (val){
-      if(this.restill){
+    update: (val) => {
+      if (this.restill) {
         this.hold = this.lastnum = 0
         this.clickcal = false
         this.clacfun = ''
         this.restill = false
-        if(val == "."){
-          this.show = "0."
-        }else{
+        if (val === '.') {
+          this.show = '0.'
+        } else {
           this.show = val
         }
         return false
       }
       // .
-      if( val == "." && (this.show).toString().match(/\./) !=null ){
+      if ( val === '.' && (this.show).toString().match(/\./) != null ) {
         return false
       }
       // 如果点击了计算符号
-      if(this.clickcal){
+      if (this.clickcal) {
         this.hold = this.show
         this.show = val
         this.clickcal = false
-      }else{
+      } else {
         // 如果0 直接+
-        if(this.show == 0){
+        if (this.show === 0) {
           this.show += val
-        }
-        // 非0 按字符串形式加
-        else{
-          this.show += val +''
+        } else {
+          // 非0 按字符串形式加
+          this.show += val + ''
         }
       }
     },
     // c
-    del: function(){
-      // // 整数
-      // if(Number(this.show)%1 == 0 & this.show != 0){
-      //   this.show = this.show.toString().slice(0,-1)
-      // }
-      // // 带小数
-      // else if(this.show == 0){
-      //   return false
-      // }
-      // else{
-      //   if(this.show.toString().split(".")[1].length == 1){
-      //     this.show = this.show.toString().slice(0,-2)
-      //   }
-      //   else{
-      //     this.show = this.show.toString().slice(0,-1)
-      //   }
-      // }
+    del: () => {
       this.show = this.hold = this.lastnum = 0
       this.clickcal = false
       this.clacfun = ''
       this.restill = false
     },
-    add: function (){
-      if(this.clickcal){
+    add: () => {
+      if (this.clickcal) {
         return false
       }
       this.lastnum = this.show
       this.clickcal = true
-      this.calcfun = "add"
+      this.calcfun = 'add'
       this.restill = false
     },
-    reduce: function (){
-      if(this.clickcal){
+    reduce: () => {
+      if (this.clickcal) {
         return false
       }
       this.lastnum = this.show
       this.clickcal = true
-      this.calcfun = "reduce"
+      this.calcfun = 'reduce'
       this.restill = false
     },
-    multiplication: function (){
-      if(this.clickcal){
+    multiplication: () => {
+      if (this.clickcal) {
         return false
       }
       this.lastnum = this.show
       this.clickcal = true
-      this.calcfun = "multiplication"
+      this.calcfun = 'multiplication'
       this.restill = false
     },
-    division: function (){
-      if(this.clickcal){
+    division: () => {
+      if (this.clickcal) {
         return false
       }
       this.lastnum = this.show
       this.clickcal = true
-      this.calcfun = "division"
+      this.calcfun = 'division'
       this.restill = false
     },
-    cal: function (){
+    cal: () => {
       this.clickcal = false
-      if(this.hold == 0){
+      if (this.hold === 0) {
         return false
       }
       switch (this.calcfun) {
-        case "add":
-          if(this.clickcal){
+        case 'add':
+          if (this.clickcal) {
             return false
           }
           this.hold = this.show
           this.show = Number(this.lastnum) + Number(this.hold)
-          this.calcfun = "stilladd"
-          break;
-        case "stilladd":
+          this.calcfun = 'stilladd'
+          break
+        case 'stilladd':
           this.show = Number(this.show) + Number(this.hold)
-          this.calcfun = "stilladd"
-          break;
-        case "reduce":
-          if(this.clickcal){
+          this.calcfun = 'stilladd'
+          break
+        case 'reduce':
+          if (this.clickcal) {
             return false
           }
           this.hold = this.show
           this.show = Number(this.lastnum) - Number(this.hold)
-          this.calcfun = "stillreduce"
-          break;
-        case "stillreduce":
+          this.calcfun = 'stillreduce'
+          break
+        case 'stillreduce':
           this.show = Number(this.show) - Number(this.hold)
-          this.calcfun = "stillreduce"
-          break;
-        case "multiplication":
-          if(this.clickcal){
+          this.calcfun = 'stillreduce'
+          break
+        case 'multiplication':
+          if (this.clickcal) {
             return false
           }
           this.hold = this.show
           this.show = Number(this.lastnum) * Number(this.hold)
-          this.calcfun = "stillmultiplication"
-          break;
-        case "stillmultiplication":
+          this.calcfun = 'stillmultiplication'
+          break
+        case 'stillmultiplication':
           this.show = Number(this.show) * Number(this.hold)
-          this.calcfun = "stillmultiplication"
-          break;
-        case "division":
-          if(this.clickcal){
+          this.calcfun = 'stillmultiplication'
+          break
+        case 'division':
+          if (this.clickcal) {
             return false
           }
           this.hold = this.show
           this.show = Number(this.lastnum) / Number(this.hold)
-          this.calcfun = "stilldivision"
-          break;
-        case "stilldivision":
+          this.calcfun = 'stilldivision'
+          break
+        case 'stilldivision':
           this.show = Number(this.show) / Number(this.hold)
-          this.calcfun = "stilldivision"
-          break;
+          this.calcfun = 'stilldivision'
+          break
+        default:
+          if (this.clickcal) {
+            return false
+          }
+          this.hold = this.show
+          this.show = Number(this.lastnum) + Number(this.hold)
+          this.calcfun = 'stilladd'
+          break
       }
       this.restill = true
     }
   },
   data () {
-    return{
-      show: 0,//显示的结果
-      hold: 0,//暂存区
-      lastnum: 0,//之前的结果
-      clickcal: false,//点击了运算符号
-      calcfun: '',//使用了什么calcfun,
+    return {
+      show: 0,          //  显示的结果
+      hold: 0,          //  暂存区
+      lastnum: 0,       // 之前的结果
+      clickcal: false,  //  点击了运算符号
+      calcfun: '',      //  使用了什么calcfun,
       restill: false
     }
   }
@@ -215,7 +211,6 @@ export default {
 </script>
 
 <style scoped lang="scss">
-@import '~vux/vux.css';
 
 $ddd:#ddd;
 

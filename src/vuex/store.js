@@ -9,8 +9,8 @@ const state = {
   // 应用启动时，count 置为0
   count: 0,
   inputVal: 1,
-  notes:[],
-  activeNote:{}
+  notes: [],
+  activeNote: {}
 }
 
 // 创建一个 object 存储 mutation 函数
@@ -26,26 +26,26 @@ const mutations = {
   INPUT_VALUE (state, val) {
     state.inputVal = Number(val)
   },
-  SET_ACTIVE_NOTE(state,note){
-      state.activeNote=note
+  SET_ACTIVE_NOTE (state, note) {
+    state.activeNote = note
   },
   ADD_NOTE (state) {
-      const newNote = {
-          text:'未命名',
-          favorite:false
-      }
-      state.notes.push(newNote)
-      state.activeNote=newNote
+    const newNote = {
+      text: '未命名',
+      favorite: false
+    }
+    state.notes.push(newNote)
+    state.activeNote = newNote
   },
-  EDIT_NOTE(state,text){
-      state.activeNote.text=text
+  EDIT_NOTE (state, text) {
+    state.activeNote.text = text
   },
-  DELETE_NOTE(state){
-      state.notes.$remove(state.activeNote)
-      state.activeNote = state.notes[0]
+  DELETE_NOTE (state) {
+    state.notes.$remove(state.activeNote)
+    state.activeNote = state.notes[0]
   },
-  TOGGLE_FAVORITE(state){
-      state.activeNote.favorite=!state.activeNote.favorite
+  TOGGLE_FAVORITE (state) {
+    state.activeNote.favorite = !state.activeNote.favorite
   },
 }
 

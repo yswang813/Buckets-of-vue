@@ -6,12 +6,10 @@
 
 <script>
 import { incrementCounter } from '../vuex/actions'
-import { XButton, Cell, Group } from 'vux'
+import XButton from 'vux/src/components/x-button/index.vue'
 export default {
   components: {
-    XButton,
-    Cell,
-    Group
+    XButton
   },
   vuex: {
     actions: {

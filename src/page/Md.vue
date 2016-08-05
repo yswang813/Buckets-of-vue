@@ -6,11 +6,10 @@
 </template>
 
 <script>
-  import marked from 'marked'
   export default {
-    data(){
-      return{
-        input: '## 活跃社区\n\
+    data () {
+      return {
+        input: `## 活跃社区\n\
 \n\
 - [segmentfault](http://segmentfault.com/u/aha2mao)\n\
 - [div.io](http://div.io/user/2274)\n\
@@ -33,12 +32,9 @@
 \n\
 # 致谢\n\
 \n\
-感谢您花时间阅读我的简历，期待能有机会和您共事。'
+感谢您花时间阅读我的简历，期待能有机会和您共事。`
       }
     },
-    filters: {
-      marked: marked
-    }
   }
 </script>
 

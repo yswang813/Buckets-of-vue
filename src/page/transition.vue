@@ -13,25 +13,48 @@
 </template>
 
 <script type="text/babel">
-  import { Cell, XInput } from 'vux'
-  export default {
-    components: {
-      Cell,
-      XInput
-    },
-    data () {
-      return {
-        keyword: '',
-        items: ['John','Tom','Billy','Coco','Jerry','Alfred','Gay','Vincent','Joe','Harry','Peter','Lush','May','Sky','Jesse','Spider','Super','Roy','Susan']
-      }
-    },
-    transitions: {
-      bounce: {
-        enterClass: 'bounceInLeft',
-        leaveClass: 'bounceOutRight'
-      }
+
+import XInput from 'vux/src/components/x-input/index.vue'
+import Cell from 'vux/src/components/cell/index.vue'
+
+export default {
+  components: {
+    XInput,
+    Cell
+  },
+  data () {
+    return {
+      keyword: '',
+      items: [
+        'John',
+        'Tom',
+        'Billy',
+        'Coco',
+        'Jerry',
+        'Alfred',
+        'Gay',
+        'Vincent',
+        'Joe',
+        'Harry',
+        'Peter',
+        'Lush',
+        'May',
+        'Sky',
+        'Jesse',
+        'Spider',
+        'Super',
+        'Roy',
+        'Susan'
+      ]
+    }
+  },
+  transitions: {
+    bounce: {
+      enterClass: 'bounceInLeft',
+      leaveClass: 'bounceOutRight'
     }
   }
+}
 </script>
 
 <style scoped>

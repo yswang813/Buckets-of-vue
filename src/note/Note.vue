@@ -8,9 +8,9 @@
 
 <script>
 
-import Editor from './Editor'
-import NotesList from './NotesList'
-import Toolbar from './Toolbar'
+import Editor from './Editor.vue'
+import NotesList from './NotesList.vue'
+import Toolbar from './Toolbar.vue'
 import store from '../vuex/store'
 
 export default {

@@ -15,7 +15,6 @@
 </template>
 
 <script>
-import SimpleGrid from 'components/grid'
 export default {
   data () {
     return {
@@ -47,9 +46,6 @@ export default {
         sex: 'Male'
       }]
     }
-  },
-  components: {
-    SimpleGrid
   },
 }
 
