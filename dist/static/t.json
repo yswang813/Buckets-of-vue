@@ -1,0 +1,24 @@
+{
+  "code": "200",
+  "data": {
+    "address": "浙江西溪湿地",
+    "avatarId": 2371,
+    "balance": 114539.53,
+    "dateCreated": 1429601891000,
+    "email": "cunshen@163.com",
+    "id": 2,
+    "lastUpdated": 1460362116000,
+    "leaderId": 1,
+    "minimumprice": 0,
+    "nickname": "换个中文名",
+    "openid": "oM1YztzfUVwuwifzr2z68b4j4xYQ",
+    "phone": "13766667777",
+    "point": 66660,
+    "role": 4,
+    "sShopId": 2,
+    "sShopName": "钓客商城2",
+    "shopExists": true,
+    "userCode": "aaa123123"
+  },
+  "msg": "success"
+}
