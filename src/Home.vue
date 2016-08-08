@@ -25,6 +25,8 @@
       </cell>
       <cell title="Notification" is-link v-link="{ name: 'notification'}">
       </cell>
+      <cell title="Address" is-link v-link="{ name: 'address'}">
+      </cell>
     </group>
   </div>
 </template>

@@ -14,6 +14,8 @@ import ZhihuList from './zhihu/List.vue'
 import CnodeList from './cnode/List.vue'
 import CnodeDetail from './cnode/Detail.vue'
 import wowTable from './wow/vTable.vue'
+import Address from './3level/address.vue'
+import Emit from './$emit/parent.vue'
 
 export default {
   '/': {
@@ -75,5 +77,13 @@ export default {
   '/notification': {
     component: Notification,
     name: 'notification'
+  },
+  '/address': {
+    component: Address,
+    name: 'address'
+  },
+  '/emit': {
+    component: Emit,
+    name: 'emit'
   },
 }
