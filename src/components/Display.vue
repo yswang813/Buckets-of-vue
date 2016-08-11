@@ -6,14 +6,14 @@
 </template>
 
 <script>
-import { getCount, getinputVal } from '../vuex/getters'
-import { inputValue } from '../vuex/actions'
+// 暂时注解
+import { inputValue } from '../store/crement/actions.js'
 export default {
   vuex: {
     getters: {
       // 注意在这里你需要 `getCount` 函数本身而不是它的执行结果 'getCount()'
-      counterValue: getCount,
-      inputVal: getinputVal
+      counterValue: state => state.crement.count,
+      inputVal: state => state.crement.inputVal
     },
     actions: {
       inputValue

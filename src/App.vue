@@ -4,16 +4,32 @@
                  transition-mode="out-in" 
                  class="animated">
     </router-view>
+    <loading v-if='isLoading'></loading>
+    <toast v-if='isShowToast' :content='toastContent'></toast>
   </div>
 </template>
 
 <script>
-import { Tabbar, TabbarItem } from 'vux'
+// 暂时注解
+import store from './store'
+import loading from './components/global/loading.vue'
+import toast from './components/global/toast.vue'
 
 export default {
   components: {
-    Tabbar,
-    TabbarItem
+    loading,
+    toast,
+  },
+  vuex: {
+    getters: {
+      isLoading: state => state.global.loading.isShow,
+      isShowToast: state => state.global.toast.isShow,
+      toastContent: state => state.global.toast.content,
+    }
+  },
+  store,
+  ready () {
+    console.log('store:' + store)
   }
 }
 

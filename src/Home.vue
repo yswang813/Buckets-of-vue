@@ -11,8 +11,6 @@
       </cell>
       <cell title="Vuex++--" is-link v-link="{ name: 'vuex'}">
       </cell>
-      <!-- <cell title="Notebook" is-link v-link="{ name: 'note'}">
-      </cell> -->
       <cell title="UniCode" is-link v-link="{ name: 'uniCode'}">
       </cell>
       <cell title="Transition" is-link v-link="{ name: 'transition'}">
@@ -34,11 +32,16 @@
 <script>
 import Group from 'vux/src/components/group/index.vue'
 import Cell from 'vux/src/components/cell/index.vue'
+import Loading from './components/global/loading.vue'
+import store from './store'
+
 export default {
   components: {
     Cell,
-    Group
+    Group,
+    Loading
   },
+  store
 }
 </script>
 

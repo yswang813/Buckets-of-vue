@@ -5,7 +5,8 @@
 </template>
 
 <script>
-import { decrementCounter } from '../vuex/actions'
+// 暂时注解
+import { decrementCounter } from '../store/crement/actions'
 import XButton from 'vux/src/components/x-button/index.vue'
 export default {
   components: {

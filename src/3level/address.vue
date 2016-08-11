@@ -1,27 +1,28 @@
 <template>
   <div id='container' @click.self='reset'>
-    <div v-for='item in addressList | absFilter undefined' style='display:inline-block'>
+    <div v-for='(index, item) in addressList | absFilter undefined' style='display:inline-block'>
       <span class='triangle' @click='showSec(item.value)'>></span>
       <span @click='showSec(item.value)'>{{item.name}}</span>
       <input type='checkbox'
              value={{item.name}}
-             v-model='provinceIds'>
+             v-model='provinceIds'
+             @click='selectAllCity($event, item.value)'>
     </div>
     <hr>
     <div v-for='item in addressList | absFilter provinceId' style='display:inline-block'>
-      <span class='triangle' @click='showThird(item.value)'>></span>
-      <span @click='showThird(item.value)'>{{item.name}}</span>
+      <span class='triangle' @click='showThird(item)'>></span>
+      <span @click='showThird(item)'>{{item.name}}</span>
       <input type='checkbox'
              value={{item.name}}
              v-model='cityIds'>
     </div>
     <hr>
-    <div v-for='item in addressList | absFilter areaId' style='display:inline-block'>
+    <!-- <div v-for='item in addressList | absFilter areaId' style='display:inline-block'>
       <span>{{item.name}}</span>
       <input type='checkbox'
              value={{item.name}}
              v-model='areaIds'>
-    </div>
+    </div> -->
     <hr>
     <p>Checked Province: {{ provinceIds | json }}</p>
     <p>Checked City: {{ cityIds | json }}</p>
@@ -50,15 +51,27 @@ export default {
     showThird: function (parameter) {
       this.areaId = parameter
     },
-    // selectAllCity: function (parameter) {
-    //   let arr = []
-    //   addressList.forEach( (item) => {
-    //     if (item.parent === parameter) {
-    //       arr.push(item.name)
-    //       console.log(arr)
-    //     }
-    //   })
-    //   this.cityIds = this.cityIds.concat(arr)
+    // selectAllCity: function (e, parameter) {
+    //   if (e.target.checked) {
+    //     let arr = []
+    //     addressList.forEach( (item) => {
+    //       if (item.parent === parameter) {
+    //         arr.push(item)
+    //         // console.log(arr)
+    //       }
+    //     })
+    //     this.cityIds = this.cityIds.concat(arr)
+    //   } else {
+    //     let arr = []
+    //     this.cityIds.forEach( (item) => {
+    //       if (item.parent === parameter) {
+    //         return false
+    //       } else {
+    //         arr.push(item)
+    //       }
+    //     })
+    //     this.cityIds = arr
+    //   }
     // },
     reset: function () {
       this.provinceId = null
@@ -75,6 +88,9 @@ export default {
       }
       return arr
     },
+  },
+  ready () {
+    // console.log(this.$els)
   }
 }
 </script>

@@ -5,12 +5,10 @@ import Weui from './page/Weui.vue'
 import Calculation from './page/Calculation.vue'
 import Md from './page/Md.vue'
 import VuexIncrement from './page/VuexIncrement.vue'
-import Note from './note/Note.vue'
 import UniCode from './page/UniCode.vue'
 import Transition from './page/transition.vue'
 import Crud from './page/Crud.vue'
 import Notification from './page/Notification.vue'
-import ZhihuList from './zhihu/List.vue'
 import CnodeList from './cnode/List.vue'
 import CnodeDetail from './cnode/Detail.vue'
 import wowTable from './wow/vTable.vue'
@@ -42,10 +40,6 @@ export default {
     component: VuexIncrement,
     name: 'vuex'
   },
-  '/note': {
-    component: Note,
-    name: 'note'
-  },
   '/uniCode': {
     component: UniCode,
     name: 'uniCode'
@@ -53,10 +47,6 @@ export default {
   '/transition': {
     component: Transition,
     name: 'transition'
-  },
-  '/zhihuList': {
-    component: ZhihuList,
-    name: 'zhihuList'
   },
   '/page/:pageNum': {
     component: CnodeList,

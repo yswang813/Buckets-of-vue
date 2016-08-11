@@ -11,7 +11,8 @@
 </template>
 
 <script>
-import store from '../vuex/store' // import 我们刚刚创建的 store
+// 暂时注解
+import store from '../store' // import 我们刚刚创建的 store
 
 export default {
   // store: store // 在根组件加入 store，让它的子组件和 store 连接

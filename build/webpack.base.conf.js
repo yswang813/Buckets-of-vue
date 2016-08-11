@@ -5,6 +5,15 @@ var projectRoot = path.resolve(__dirname, '../')
 var autoprefixer = require('autoprefixer');
 var pxtorem = require('postcss-pxtorem');
 
+console.log('store: '+path.resolve(__dirname, '../src/store'))
+console.log('src: '+path.resolve(__dirname, '../src'))
+console.log('assets: '+path.resolve(__dirname, '../src/assets'))
+console.log('components: '+path.resolve(__dirname, '../src/components'))
+console.log('utils: '+path.resolve(__dirname, '../src/utils'))
+console.log('api: '+path.resolve(__dirname, '../src/api'))
+console.log('filters: '+path.resolve(__dirname, '../src/filters'))
+console.log('alias: '+path.resolve(__dirname, '../src/alias'))
+
 module.exports = {
   entry: {
     app: './src/main.js'
@@ -18,9 +27,14 @@ module.exports = {
     extensions: ['', '.js', '.vue'],
     fallback: [path.join(__dirname, '../node_modules')],
     alias: {
-      src: path.resolve(__dirname, '../src'),
-      assets: path.resolve(__dirname, '../src/assets'),
-      components: path.resolve(__dirname, '../src/components')
+      'src': path.resolve(__dirname, '../src'),
+      'assets': path.resolve(__dirname, '../src/assets'),
+      'components': path.resolve(__dirname, '../src/components'),
+      'store': path.resolve(__dirname, '../src/store'),
+      utils: path.resolve(__dirname, '../src/utils'),
+      api: path.resolve(__dirname, '../src/api'),
+      filters: path.resolve(__dirname, '../src/filters'),
+      alias: path.resolve(__dirname, '../src/alias'),
     }
   },
   resolveLoader: {
