@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+<style>
+.arrow{
+  display: inline-block;
+  transform: rotate(90deg);
+  margin-right: 5px;
+}
+.province,.city,.area{
+  display: inline-block;
+}
+</style>
+<body>
+  
+  <div id="provinces"></div>
+  
+  <div id="citys"></div>
+
+  <div id="areas"></div>
+</body>
+<link href="http://cdn.bootcss.com/bootstrap/3.3.6/css/bootstrap-theme.css" rel="stylesheet">
+<script src="http://cdn.bootcss.com/jquery/2.0.0/jquery.min.js"></script>
+<script type="text/javascript">
+  $(function() {
+    $.getJSON('http://aha2mao.github.io/Buckets-of-vue/src/3level/address.json', function(data) {
+      var provinces = [];
+      var citys = [];
+      var areas = [];
+
+      /************************/
+      // 拼装省份
+      $.each(data, function(key, val) {
+        if (val.parent == undefined) {
+          provinces.push("<p class='province'><span class='arrow'>></span><span class='name'>"+val.name+"</span><input type='checkbox' id='"+val.value+"' val='"+val.value+"'></p>")
+        }
+      });
+      // 渲染省份provinces
+      $("#provinces").html('<h2>省</h2>'+provinces.join(''))
+
+      /************************/
+      // 点选省份遍历json拿到下属城市拼装
+      $(".province .arrow,.province .name").on("click",function(){
+        // 重置citys数组
+        citys = [];
+        var _this = this;
+        // _thisValue: 选择城市的id
+        var _thisValue = $(_this).siblings('input')[0].id
+        $.each(data, function(key, val) {
+          if (val.parent == _thisValue) {
+            citys.push("<p class='city'><span class='arrow'>></span><span class='name'>"+val.name+"</span><input type='checkbox' id='"+val.value+"' val='"+val.value+"'></p>")
+          }
+        });
+        // 渲染citys
+        $("#citys").html('<h2>市</h2>'+citys.join(''))
+
+        /************************/
+        // 点选省份遍历json拿到下属区域拼装
+        $(".city .name").on("click",function(){
+          // 重置areas数组
+          areas = [];
+          var _this = this;
+          // _thisValue: 选择城市的id
+          var _thisValue = $(_this).siblings('input')[0].id
+          $.each(data, function(key, val) {
+            if (val.parent == _thisValue) {
+              areas.push("<p class='area'><span class='name'>"+val.name+"</span><input type='checkbox' id='"+val.value+"' val='"+val.value+"'></p>")
+            }
+          });
+          // 渲染areas
+          $("#areas").html('<h2>区</h2>'+areas.join(''))
+        })
+
+      })
+
+    });
+  });
+</script>
+</html>
